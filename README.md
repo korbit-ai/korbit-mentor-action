@@ -29,9 +29,9 @@ Now you should be able to continue and setup your github action workflow.
 
 ## Outputs
 
-### `report`
+### `report` - Optional
 
-The full report of the scan analysis.
+This output will exist only if the variable headless is set to true. Otherwise the output will be shown directly in the github action step.
 
 ## Example usage
 
@@ -104,10 +104,7 @@ jobs:
           path: ${{ github.event.inputs.path }}
           threshold_confidence: 10 # Set your own threshold
           threshold_priority: 10 # Set your own threshold
-          headless_show_report: false
           headless: false
           secret_id: ${{ secrets.KORBIT_SECRET_ID }}
           secret_key: ${{ secrets.KORBIT_SECRET_KEY }}
-      - name: Get scan output
-        run: echo "${{ steps.check.outputs.report }}"
 ```
