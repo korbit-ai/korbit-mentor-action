@@ -8,6 +8,7 @@ threshold_priority=$2
 threshold_confidence=$3
 headless=$4
 headless_show_report=$5
+
 echo "Environment variables:"
 echo "KORBIT_SECRET_ID: $KORBIT_SECRET_ID"
 echo "KORBIT_SECRET_KEY: $KORBIT_SECRET_KEY"
@@ -38,5 +39,5 @@ eval $cmd
 echo "korbit scan command completed."
 echo "\n\nOutput:"
 echo "$(cat $OUTPUT_PATH)"
-# echo $(cat $OUTPUT_PATH) >> $GITHUB_OUTPUT
+echo "$(cat $OUTPUT_PATH)" >> $GITHUB_OUTPUT
 
