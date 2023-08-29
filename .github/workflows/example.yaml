@@ -11,7 +11,7 @@ jobs:
         uses: ./ # Uses an action in the root directory
         id: check
         with:
-          path: "."
+          path: "example"
           threshold_confidence: 9
           threshold_priority: 9
           headless_show_report: true
@@ -20,4 +20,4 @@ jobs:
           secret_key: ${{ secrets.PROD_KORBIT_SECRET_KEY }}
       # Use the output from the `hello` step
       - name: Get scan output
-        run: echo ${{ steps.hello.outputs.time }}
+        run: echo "${{ steps.hello.outputs.report }}""
