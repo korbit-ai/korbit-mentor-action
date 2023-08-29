@@ -1,5 +1,4 @@
-# action.yml
-name: 'Korbit AI mentor scan'
+name: 'Korbit AI mentor'
 description: 'Github action for Korbit AI mentor scan to be triggered'
 inputs:
   path:
