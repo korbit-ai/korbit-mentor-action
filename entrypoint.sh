@@ -20,11 +20,14 @@ echo "Headless: $headless"
 echo "Headless Show Report: $headless_show_report"
 
 cmd="korbit scan $path \
-    --threshold-priority $threshold_priority \
-    --threshold-confidence $threshold_confidence"
+    --threshold-priority=$threshold_priority \
+    --threshold-confidence=$threshold_confidence"
 
 if [ "$headless" = true ]; then
-    cmd+=" --headless"
+    cmd="$cmd --headless"
+fi
+if [ "$headless_show_report" = true ]; then
+    cmd="$cmd --headless-show-report"
 fi
 
 
