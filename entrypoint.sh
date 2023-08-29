@@ -22,4 +22,4 @@ eval $cmd
 
 if [ -f $OUTPUT_PATH ]; then
     $(cat $OUTPUT_PATH) >> $GITHUB_OUTPUT
-
+fi
