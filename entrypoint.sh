@@ -23,7 +23,7 @@ fi
 korbit scan --help
 
 eval $cmd
-ls -la $OUTPUT_PATH
+ls -la .korbit
 ls -la
 
 echo "$(cat $OUTPUT_PATH)" >> $GITHUB_OUTPUT
