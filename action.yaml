@@ -35,8 +35,8 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   env:
-    KORBIT_SECRET_ID=${{ inputs.secret_id }}
-    KORBIT_SECRET_KEY=${{ inputs.secret_key }}
+    KORBIT_SECRET_ID: ${{ inputs.secret_id }}
+    KORBIT_SECRET_KEY: ${{ inputs.secret_key }}
   args:
     - ${{ inputs.path }}
     - ${{ inputs.threshold_priority }}
