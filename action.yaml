@@ -1,0 +1,45 @@
+# action.yml
+name: 'Korbit AI mentor scan'
+description: 'Github action for Korbit AI mentor scan to be triggered'
+inputs:
+  path:
+    description: 'The path to the local file or folder to be scan.'
+    required: true
+    default: "."
+  threshold_priority:
+    description: 'Issues found must be above this priority score to be presented (on a scale of 0-10).'
+    required: true
+    default: "0"
+  threshold_confidence:
+    description: 'Issues found must be above this confidence score to be presented (on a scale of 0-10).'
+    required: true
+    default: "0"
+  headless:
+    description: 'Will trigger an exit code if issues have been found.'
+    required: true
+    default: "false"
+  headless_show_report:
+    description: 'Will prompt directly in the output the report of the scan.'
+    required: true
+    default: "false"
+  secret_id:
+    description: 'The given secret id generated on mentor.korbit.ai'
+    required: true
+  secret_key:
+    description: 'The given secret key generated on mentor.korbit.ai'
+    required: true
+outputs:
+  report:
+    description: 'The complete report of the requested scan'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    KORBIT_SECRET_ID=${{ inputs.secret_id }}
+    KORBIT_SECRET_KEY=${{ inputs.secret_key }}
+  args:
+    - ${{ inputs.path }}
+    - ${{ inputs.threshold_priority }}
+    - ${{ inputs.threshold_confidence }}
+    - ${{ inputs.headless }}
+    - ${{ inputs.headless_show_report }}

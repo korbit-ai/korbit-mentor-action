@@ -1,0 +1,23 @@
+on: [push]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: An example of using the Korbit AI mentor github action
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Hello world action step
+        uses: ./ # Uses an action in the root directory
+        id: check
+        with:
+          path: "."
+          threshold_confidence: 9
+          threshold_priority: 9
+          headless_show_report: true
+          headless: true
+          secret_id: ${{ secrets.KORBIT_SECRET_ID }}
+          secret_key: ${{ secrets.KORBIT_SECRET_KEY }}
+      # Use the output from the `hello` step
+      - name: Get scan output
+        run: echo ${{ steps.hello.outputs.time }}
