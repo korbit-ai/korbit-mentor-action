@@ -8,19 +8,19 @@ inputs:
     default: "."
   threshold_priority:
     description: 'Issues found must be above this priority score to be presented (on a scale of 0-10).'
-    required: true
+    required: false
     default: "0"
   threshold_confidence:
     description: 'Issues found must be above this confidence score to be presented (on a scale of 0-10).'
-    required: true
+    required: false
     default: "0"
   headless:
     description: 'Will trigger an exit code if issues have been found.'
-    required: true
-    default: "false"
+    required: false
+    default: "true"
   headless_show_report:
     description: 'Will prompt directly in the output the report of the scan.'
-    required: true
+    required: false
     default: "false"
   secret_id:
     description: 'The given secret id generated on mentor.korbit.ai'
