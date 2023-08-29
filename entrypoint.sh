@@ -31,6 +31,8 @@ if [ "$headless_show_report" = true ]; then
     cmd="$cmd --headless-show-report"
 fi
 
+korbit scan --help
+python -m korbit scan --help
 
 echo "Executing korbit scan command..."
 echo "Command: $cmd"
