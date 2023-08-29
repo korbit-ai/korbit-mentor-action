@@ -15,7 +15,7 @@ jobs:
           threshold_confidence: 9
           threshold_priority: 9
           headless_show_report: true
-          headless: true
+          headless: false
           secret_id: ${{ secrets.PROD_KORBIT_SECRET_ID }}
           secret_key: ${{ secrets.PROD_KORBIT_SECRET_KEY }}
       - name: Get scan output
