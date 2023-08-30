@@ -20,10 +20,12 @@ fi
 
 eval $cmd
 
-eval "python -c 'exit(1123)'"
+eval_exit_code=$?
 
 if [ -f $OUTPUT_PATH ]; then
     cat $OUTPUT_PATH/scan.log >> $GITHUB_STEP_SUMMARY
 else
     cat $OUTPUT_PATH/*.html >> $GITHUB_STEP_SUMMARY
 fi
+
+exit $eval_exit_code
