@@ -1,6 +1,6 @@
 #!/bin/sh -l
 
-OUTPUT_PATH=".korbit/"
+OUTPUT_PATH=".korbit"
 path=$1
 threshold_priority=$2
 threshold_confidence=$3
@@ -12,7 +12,7 @@ cmd="korbit scan $path \
     --threshold-confidence=$threshold_confidence"
 
 if [ "$headless" = true ]; then
-    cmd="$cmd --headlesse"
+    cmd="$cmd --headless"
 fi
 if [ "$headless_show_report" = true ]; then
     cmd="$cmd --headless-show-report"
