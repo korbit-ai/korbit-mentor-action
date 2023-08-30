@@ -1,6 +1,6 @@
 #!/bin/sh -l
 
-OUTPUT_PATH=".korbit/scan.log"
+OUTPUT_PATH=".korbit/"
 path=$1
 threshold_priority=$2
 threshold_confidence=$3
@@ -21,5 +21,7 @@ fi
 eval $cmd
 
 if [ -f $OUTPUT_PATH ]; then
-    $(cat $OUTPUT_PATH) >> $GITHUB_OUTPUT
+    $(cat $OUTPUT_PATH/scan.log) >> $GITHUB_OUTPUT
+else
+    $(cat $OUTPUT_PATH/*.html)
 fi

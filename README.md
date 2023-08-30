@@ -31,7 +31,7 @@ Now you should be able to continue and setup your github action workflow.
 
 ### `report` - Optional
 
-This output will exist only if the variable headless is set to true. Otherwise the output will be shown directly in the github action step.
+Final report of the scan. If `headless` is set to false, the output will be HTML formatted.
 
 ## Example usage
 
