@@ -113,10 +113,10 @@ jobs:
 
 When setting up the Korbit AI mentor Github action, you might encounter some problems. If you see that the workflow, return a certain exit code here is the explaination of what they means:
 
-| exit code | description                                                                                                                                                                   |
-| --------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|         0 | Everything went fine, congratulation.                                                                                                                                         |
-|        90 | Something went wrong, and we don't know why, please contact [support@korbit.ai](mailto:support@korbit.ai).                                                                    |
-|        91 | You have set the headless option, but Korbit AI mentor found issue in your code that are above the thresholds you set.                                                        |
-|        92 | Something went wrong, while we were analyzing your file(s). please contact [support@korbit.ai](mailto:support@korbit.ai)                                                      |
-|        93 | The login credentials aren't set properly. Refer to "[Secrets id/key](#secrets-id%2Fkey)" section or in our [documentation](https://docs.korbit.ai/#/cli/cli_authentication). |
+| exit code | description                                                                                                                                                                |
+| --------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|         0 | Everything went fine, congratulation.                                                                                                                                      |
+|        90 | Something went wrong, and we don't know why, please contact [support@korbit.ai](mailto:support@korbit.ai).                                                                 |
+|        91 | You have set the headless option, but Korbit AI mentor found issue in your code that are above the thresholds you set.                                                     |
+|        92 | Something went wrong, while we were analyzing your file(s). please contact [support@korbit.ai](mailto:support@korbit.ai)                                                   |
+|        93 | The login credentials aren't set properly. Refer to "[Secrets id/key](#secrets-idkey)" section or in our [documentation](https://docs.korbit.ai/#/cli/cli_authentication). |
