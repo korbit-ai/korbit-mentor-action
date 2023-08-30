@@ -27,9 +27,9 @@ fi
 
 echo "Start running the scan..."
 eval $cmd
-echo "Running the scan completed..."
-
 eval_exit_code=$?
+
+echo "Creating the report..."
 
 # We want to make sure the report exit before showing it
 if [ -f "$OUTPUT_PATH/scan.log" ]; then
@@ -43,10 +43,14 @@ else
 fi
 
 
+echo "Scan completed."
 
 if [ $eval_exit_code -ne $EXIT_CODE_OK ]; then
     exit_message="korbit scan command failed with exit code: $eval_exit_code"
     echo $exit_message
     echo $exit_message >> $GITHUB_STEP_SUMMARY
+else
+    echo "korbit scan command completed successfuly."
 fi
+
 exit $eval_exit_code
