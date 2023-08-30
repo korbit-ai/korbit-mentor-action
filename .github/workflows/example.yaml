@@ -20,6 +20,6 @@ jobs:
           path: ${{ github.event.inputs.path }}
           threshold_confidence: 10
           threshold_priority: 10
-          headless: false
+          headless: true
           secret_id: ${{ secrets.KORBIT_SECRET_ID }}
           secret_key: ${{ secrets.KORBIT_SECRET_KEY }}
