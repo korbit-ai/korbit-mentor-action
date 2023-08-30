@@ -23,5 +23,5 @@ eval $cmd
 if [ -f $OUTPUT_PATH ]; then
     $(cat $OUTPUT_PATH/scan.log) >> $GITHUB_OUTPUT
 else
-    $(cat $OUTPUT_PATH/*.html)
+    $(cat $OUTPUT_PATH/*.html) >> $GITHUB_OUTPUT
 fi
