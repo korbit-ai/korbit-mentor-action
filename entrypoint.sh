@@ -12,13 +12,15 @@ cmd="korbit scan $path \
     --threshold-confidence=$threshold_confidence"
 
 if [ "$headless" = true ]; then
-    cmd="$cmd --headless"
+    cmd="$cmd --headlesse"
 fi
 if [ "$headless_show_report" = true ]; then
     cmd="$cmd --headless-show-report"
 fi
 
 eval $cmd
+
+eval "python -c 'exit(1123)'"
 
 if [ -f $OUTPUT_PATH ]; then
     cat $OUTPUT_PATH/scan.log >> $GITHUB_STEP_SUMMARY
