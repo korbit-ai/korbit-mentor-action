@@ -1,8 +1,10 @@
 # Korbit AI mentor action
 
+The [Korbit AI mentor](https://korbit.ai) for Software Engineering: Unlimited AI code reviews and mentoring across your team, 24/7.
+
 In order to use this Github action, you must already have an account on [mentor.korbit.ai](https://mentor.korbit.ai) and [generated your secret id/key](https://docs.korbit.ai/#/cli/cli_authentication).
 
-This Github action will allow you to integrate within your pipeline the Korbit AI mentor scan.
+This Github action will allow you to integrate within your pipeline a Korbit AI mentor scan automatically.
 
 ## Secrets id/key
 
