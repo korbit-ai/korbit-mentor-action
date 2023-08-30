@@ -1,0 +1,20 @@
+name: Testing current action without version
+on: [push]
+
+jobs:
+  check_files:
+    runs-on: ubuntu-latest
+    name: An example of using the Korbit AI mentor github action
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Check file using local github action
+        uses: ./ # Uses an action in the root directory
+        with:
+          path: "example"
+          threshold_confidence: 9
+          threshold_priority: 9
+          headless_show_report: false
+          headless: true
+          secret_id: ${{ secrets.PROD_KORBIT_SECRET_ID }}
+          secret_key: ${{ secrets.PROD_KORBIT_SECRET_KEY }}

@@ -1,19 +1,25 @@
-on: [push]
-
+name: Example of using the Korbit AI mentor manually
+on:
+  workflow_dispatch:
+    inputs:
+      path:
+        description: "Path to scan"
+        default: "example"
+        required: true
 jobs:
-  check_files:
-    runs-on: ubuntu-latest
+  scan-code:
     name: An example of using the Korbit AI mentor github action
+    runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Check file using local github action
-        uses: ./ # Uses an action in the root directory
+      - uses: actions/checkout@v2
+      - name: Scan path
+        uses: korbit-ai/korbit-mentor-action@v1
+        id: check
         with:
-          path: "example"
-          threshold_confidence: 9
-          threshold_priority: 9
-          headless_show_report: false
-          headless: true
-          secret_id: ${{ secrets.PROD_KORBIT_SECRET_ID }}
-          secret_key: ${{ secrets.PROD_KORBIT_SECRET_KEY }}
+          path: ${{ github.event.inputs.path }}
+          threshold_confidence: 10
+          threshold_priority: 10
+          headless: false
+          secret_id: ${{ secrets.KORBIT_SECRET_ID }}
+          secret_key: ${{ secrets.KORBIT_SECRET_KEY }}
