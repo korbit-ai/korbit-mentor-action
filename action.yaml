@@ -1,5 +1,8 @@
 name: 'Korbit AI mentor'
 description: 'Github action for Korbit AI mentor scan to be triggered'
+branding:
+  icon: 'check-circle'
+  color: 'blue'
 inputs:
   path:
     description: 'The path to the local file or folder to be scan.'
