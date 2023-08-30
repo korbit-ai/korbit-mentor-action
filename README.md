@@ -58,12 +58,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Check file using local github action
-        uses: ## TODO ADD IT HERE
+        uses: korbit-ai/korbit-mentor-action@v2
         id: check
         with:
           path: "example"
-          threshold_confidence: 9
-          threshold_priority: 9
+          threshold_confidence: 9 # Set your own threshold (0-10)
+          threshold_priority: 9 # Set your own threshold (0-10)
           headless_show_report: true
           headless: true
           secret_id: ${{ secrets.KORBIT_SECRET_ID }}
@@ -98,12 +98,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Scan file
-        uses: ## TODO ADD IT HERE
+        uses: korbit-ai/korbit-mentor-action@v2
         id: check
         with:
           path: ${{ github.event.inputs.path }}
-          threshold_confidence: 10 # Set your own threshold
-          threshold_priority: 10 # Set your own threshold
+          threshold_confidence: 10 # Set your own threshold (0-10)
+          threshold_priority: 10 # Set your own threshold (0-10)
           headless: false
           secret_id: ${{ secrets.KORBIT_SECRET_ID }}
           secret_key: ${{ secrets.KORBIT_SECRET_KEY }}
