@@ -29,9 +29,7 @@ Now you should be able to continue and setup your github action workflow.
 
 ## Outputs
 
-### `report` - Optional
-
-Final report of the scan. If `headless` is set to false, the output will be HTML formatted.
+The action will print the report in the summary tab of your github action run.
 
 ## Example usage
 
@@ -66,8 +64,6 @@ jobs:
           headless: true
           secret_id: ${{ secrets.KORBIT_SECRET_ID }}
           secret_key: ${{ secrets.KORBIT_SECRET_KEY }}
-      - name: Get scan output
-        run: echo "${{ steps.check.outputs.report }}"
 ```
 
 **Note**: You can setup `.korbitignore` to ignore specific files/folders from being scans, see [documentation](https://docs.korbit.ai/code_scans/ignore_files).

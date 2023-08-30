@@ -18,5 +18,3 @@ jobs:
           headless: true
           secret_id: ${{ secrets.PROD_KORBIT_SECRET_ID }}
           secret_key: ${{ secrets.PROD_KORBIT_SECRET_KEY }}
-      - name: Get scan output
-        run: echo "${{ steps.check.outputs.report }}"

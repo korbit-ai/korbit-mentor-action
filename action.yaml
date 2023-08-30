@@ -27,9 +27,6 @@ inputs:
   secret_key:
     description: 'The given secret key generated on mentor.korbit.ai'
     required: true
-outputs:
-  report:
-    description: 'The complete report of the requested scan'
 runs:
   using: 'docker'
   image: 'Dockerfile'

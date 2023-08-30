@@ -21,9 +21,7 @@ fi
 eval $cmd
 
 if [ -f $OUTPUT_PATH ]; then
-    echo 'report="$(cat $OUTPUT_PATH/scan.log")' >> $GITHUB_OUTPUT
+    cat $OUTPUT_PATH/scan.log >> $GITHUB_STEP_SUMMARY
 else
-    echo 'report="$(cat $OUTPUT_PATH/*.html")' >> $GITHUB_OUTPUT
+    cat $OUTPUT_PATH/*.html >> $GITHUB_STEP_SUMMARY
 fi
-
-cat $OUTPUT_PATH/*.html >> $GITHUB_STEP_SUMMARY
