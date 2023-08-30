@@ -86,10 +86,6 @@ on:
         description: "Path to scan"
         default: "." #
         required: true
-env:
-  KORBIT_SECRET_ID: ${{ secrets.KORBIT_SECRET_ID }}
-  KORBIT_SECRET_KEY: ${{ secrets.KORBIT_SECRET_KEY }}
-  KORBIT_HOST: ${{ secrets.KORBIT_HOST }}
 jobs:
   scan-code:
     name: An example of using the Korbit AI mentor github action
