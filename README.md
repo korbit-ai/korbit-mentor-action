@@ -114,8 +114,8 @@ When setting up the Korbit AI mentor Github action, you might encounter some pro
 
 | exit code | description                                                                                                                                                                |
 | --------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|         0 | Everything went fine, congratulation.                                                                                                                                      |
+|         0 | Success! Korbit ran a scan, code met thresholds and pipeline completed.                                                                                                    |
 |        90 | Something went wrong and we don't know why, please contact [support@korbit.ai](mailto:support@korbit.ai).                                                                  |
 |        91 | You have set your action to run using the headless option, and Korbit AI mentor found issues in your code that are above the thresholds you set.                           |
-|        92 | Something went wrong while we were analyzing your file(s), please contact [support@korbit.ai](mailto:support@korbit.ai)                                                    |
+|        92 | Something went wrong while we were analyzing your file(s), please contact [support@korbit.ai](mailto:support@korbit.ai).                                                   |
 |        93 | The login credentials aren't set properly. Refer to "[Secrets id/key](#secrets-idkey)" section or in our [documentation](https://docs.korbit.ai/#/cli/cli_authentication). |
