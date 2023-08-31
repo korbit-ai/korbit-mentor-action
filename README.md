@@ -5,6 +5,30 @@ The [Korbit AI mentor](https://korbit.ai) for Software Engineering: Unlimited AI
 In order to use this Github action, you must already have an account on [mentor.korbit.ai](https://mentor.korbit.ai) and [generated your secret id/key](https://docs.korbit.ai/#/cli/cli_authentication).
 
 This Github action will allow you to integrate within your pipeline a Korbit AI mentor scan automatically.
+```sh
+Analysis in progress (1/1)
+├── another_subfolder
+│ ├── afile.py ⏳
+│ └── afile.js ✅
+└── subfolder
+    ├── afile.py ✅
+    └── afile.js ✅
+Analyzing files (4)... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 75% -:--:--
+Analysis completed successfully! Report generation in progress...
+Category: Potential Unwanted Behaviors
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━┓
+┃ Error Description                                  ┃ File Path   ┃ Confidence ┃ Priority ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━┩
+│ The return statement is not followed by any        │ subfolfolder│ 10         │ 10       │
+│ expression, so the function will always return     │ /afile.js   │            │          │
+│ undefined. The multiplication operation 'a \*      │             │            │          │
+│ power' is unreachable and will never be executed.  │             │            │          │
+└────────────────────────────────────────────────────┴─────────────┴────────────┴──────────┘
+
+Final report contains 1 issues We ignored 2/3.
+We found some issue in the code, see final report .korbit/4150_2023-08-30T16:41:18.131624_report.html
+korbit scan command failed with exit code: 91
+```
 
 ## Secrets id/key
 
