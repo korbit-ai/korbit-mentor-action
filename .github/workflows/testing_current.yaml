@@ -8,6 +8,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Debug
+        run: |
+          echo ${{ github.base_ref }}
+          git branch -a
+          git fetch --all
+          git branch -a
       - name: Check file using local github action
         uses: ./ # Uses an action in the root directory
         with:

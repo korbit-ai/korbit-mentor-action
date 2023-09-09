@@ -15,9 +15,7 @@ headless=$4
 is_scan_pr=$5
 scan_pr_path=$6
 scan_pr_compare_branch=$7
-output_scan_log_path=$8
-echo "Output path: $GITHUB_STEP_SUMMARY $output_scan_log_path"
-output_scan_log_path=$GITHUB_STEP_SUMMARY
+
 git branch -a
 cmd="korbit"
 
@@ -45,12 +43,12 @@ echo "Creating the report..."
 
 # We want to make sure the report exit before showing it
 if [ -f "$OUTPUT_PATH/scan.log" ]; then
-    cat $OUTPUT_PATH/scan.log >> $output_scan_log_path
+    cat $OUTPUT_PATH/scan.log >> $GITHUB_STEP_SUMMARY
 else
     if [ -f "$OUTPUT_PATH/*.html" ]; then
-        cat $OUTPUT_PATH/*.html >> $output_scan_log_path
+        cat $OUTPUT_PATH/*.html >> $GITHUB_STEP_SUMMARY
     else
-        echo "No report found." >> $output_scan_log_path
+        echo "No report found." >> $GITHUB_STEP_SUMMARY
     fi
 fi
 

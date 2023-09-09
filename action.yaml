@@ -52,4 +52,3 @@ runs:
     - ${{ inputs.is_scan_pr }}
     - ${{ inputs.scan_pr_path }}
     - ${{ inputs.scan_pr_compare_branch }}
-    - $GITHUB_STEP_SUMMARY
