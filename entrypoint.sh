@@ -8,21 +8,33 @@ EXIT_CODE_AUTH_FAILED=93
 
 
 OUTPUT_PATH=".korbit"
-path=$1
+paths=$1
 threshold_priority=$2
 threshold_confidence=$3
 headless=$4
-headless_show_report=$5
+is_scan_pr=$5
+scan_pr_path=$6
+scan_pr_compare_branch=$7
+output_scan_log_path=$8
+echo "Output path: $GITHUB_STEP_SUMMARY $output_scan_log_path"
+output_scan_log_path=$GITHUB_STEP_SUMMARY
+git branch -a
+cmd="korbit"
 
-cmd="korbit scan $path \
+if [ "$is_scan_pr" = true ]; then
+    echo "Running a PR scan for `$scan_pr_path` and against branch `$scan_pr_compare_branch`"
+    cmd="$cmd scan-pr $scan_pr_path $scan_pr_compare_branch"
+else
+    echo 
+    cmd="$cmd scan $paths"
+fi
+
+cmd="$cmd \
     --threshold-priority=$threshold_priority \
     --threshold-confidence=$threshold_confidence"
 
 if [ "$headless" = true ]; then
     cmd="$cmd --headless"
-fi
-if [ "$headless_show_report" = true ]; then
-    cmd="$cmd --headless-show-report"
 fi
 
 echo "Start running the scan..."
@@ -33,12 +45,12 @@ echo "Creating the report..."
 
 # We want to make sure the report exit before showing it
 if [ -f "$OUTPUT_PATH/scan.log" ]; then
-    cat $OUTPUT_PATH/scan.log >> $GITHUB_STEP_SUMMARY
+    cat $OUTPUT_PATH/scan.log >> $output_scan_log_path
 else
     if [ -f "$OUTPUT_PATH/*.html" ]; then
-        cat $OUTPUT_PATH/*.html >> $GITHUB_STEP_SUMMARY
+        cat $OUTPUT_PATH/*.html >> $output_scan_log_path
     else
-        echo "No report found." >> $GITHUB_STEP_SUMMARY
+        echo "No report found." >> $output_scan_log_path
     fi
 fi
 
@@ -48,7 +60,7 @@ echo "Scan completed."
 if [ $eval_exit_code -ne $EXIT_CODE_OK ]; then
     exit_message="korbit scan command failed with exit code: $eval_exit_code"
     echo $exit_message
-    echo $exit_message >> $GITHUB_STEP_SUMMARY
+    echo $exit_message >> $output_scan_log_path
 else
     echo "korbit scan command completed successfuly."
 fi

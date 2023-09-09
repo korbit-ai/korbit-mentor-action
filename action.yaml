@@ -4,8 +4,8 @@ branding:
   icon: 'zap'
   color: 'gray-dark'
 inputs:
-  path:
-    description: 'The path to the local file or folder to be scan.'
+  paths:
+    description: 'The path to the local file or folder to be scan. List of valid paths separated by space.'
     required: true
     default: "."
   threshold_priority:
@@ -20,10 +20,18 @@ inputs:
     description: 'Will trigger an exit code if issues have been found.'
     required: false
     default: "true"
-  headless_show_report:
-    description: 'Will prompt directly in the output the report of the scan.'
+  is_scan_pr:
+    description: 'Flag to run a scan only on diff files for the current active branch against a `compare_branch`.'
     required: false
     default: "false"
+  scan_pr_path:
+    description: 'The path to the git repository to be scanned.'
+    required: false
+    default: "."
+  scan_pr_compare_branch:
+    description: 'The branch to be compared to, for PR analysis.'
+    required: false
+    default: "master"
   secret_id:
     description: 'The given secret id generated on mentor.korbit.ai'
     required: true
@@ -41,4 +49,6 @@ runs:
     - ${{ inputs.threshold_priority }}
     - ${{ inputs.threshold_confidence }}
     - ${{ inputs.headless }}
-    - ${{ inputs.headless_show_report }}
+    - ${{ inputs.is_scan_pr }}
+    - ${{ inputs.scan_pr_path }}
+    - ${{ inputs.scan_pr_compare_branch }}
