@@ -21,7 +21,7 @@ cmd="korbit"
 
 if [ "$is_scan_pr" = true ]; then
     echo "Running a PR scan for `$scan_pr_path` and against branch `$scan_pr_compare_branch`"
-    cmd="$cmd scan-pr $scan_pr_compare_branch $scan_pr_path"
+    cmd="$cmd scan-pr $scan_pr_path $scan_pr_compare_branch"
 else
     echo 
     cmd="$cmd scan $paths"
@@ -36,7 +36,7 @@ if [ "$headless" = true ]; then
 fi
 
 echo "Start running the scan..."
-eval $cmd
+eval "$cmd --verbose"
 eval_exit_code=$?
 
 echo "Creating the report..."
