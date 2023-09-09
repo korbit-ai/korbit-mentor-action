@@ -11,10 +11,11 @@ jobs:
       - name: Check file using local github action
         uses: ./ # Uses an action in the root directory
         with:
-          path: "example"
           threshold_confidence: 9
           threshold_priority: 9
-          headless_show_report: false
+          is_scan_pr: true
+          scan_pr_path: .
+          scan_pr_compare_branch: ${{ github.base_ref }}
           headless: true
           secret_id: ${{ secrets.KORBIT_SECRET_ID }}
           secret_key: ${{ secrets.KORBIT_SECRET_KEY }}
